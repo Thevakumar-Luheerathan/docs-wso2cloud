@@ -1,0 +1,33 @@
+---
+sidebar_position: 3
+title: Access control
+description: How access works in WSO2 Cloud, with organization roles across the organization and service roles in each service.
+---
+
+# Access control
+
+Access in WSO2 Cloud works at two levels:
+
+- **Organization roles** decide what a user can do across the organization, such as managing users and service contacts.
+- **Service roles** decide what a user can do inside each service, such as building or deploying agents. Each service defines and manages its own roles.
+
+## Organization roles
+
+Every user in an organization has one organization role. You choose it when you [invite the user](./invite-users.mdx).
+
+| Role | Use it for |
+| --- | --- |
+| **OrganizationAdmin** | People who administer the organization: its users, its service contacts, and every service. |
+| **Member** | Everyone else in the organization. |
+
+An **OrganizationAdmin** is also an admin in every service. Give this role only to the people who need to administer the organization.
+
+## Service roles
+
+Each service ships its own predefined roles, shaped around the jobs people do in that service. For example, Agent Management has **Admin**, **Developer**, **AI Lead**, and **Platform Engineer** roles. To learn about a service's roles, see its documentation:
+
+- [Agent Management](https://wso2.com/agent-platform/docs/cloud/concepts/organization/)
+
+## Next steps
+
+- [Invite users](./invite-users.mdx)

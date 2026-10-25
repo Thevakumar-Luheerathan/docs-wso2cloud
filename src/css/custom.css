@@ -66,28 +66,189 @@
   --ifm-h4-font-size: 1rem;
 }
 
-/* Three-up offering cards on the overview page. */
-.offering-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  margin-bottom: 1.5rem;
-}
-
-.offering-card {
-  background: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  padding: 1.25rem;
-}
-
-.markdown .offering-card h3 {
-  color: var(--ifm-color-primary);
-  font-size: 1rem;
-  margin: 0 0 0.5rem;
-}
-
-.offering-card p {
-  font-size: 0.9rem;
+/* Nested boxes for the hierarchy on the key concepts page. The markup is a
+   plain nested list, so the Markdown copies for AI agents stay readable. */
+.hierarchy ul {
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.hierarchy li {
+  margin: 0;
+}
+
+.hierarchy strong {
+  color: var(--ifm-font-color-base);
+  display: block;
+}
+
+.hierarchy > ul > li {
+  background: color-mix(in srgb, var(--ifm-color-primary) 6%, var(--ifm-background-color));
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.hierarchy > ul > li > strong {
+  color: var(--ifm-color-primary-darkest);
+  font-size: 1.05rem;
+}
+
+.hierarchy > ul > li > ul {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 0.75rem;
+}
+
+.hierarchy > ul > li > ul > li {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  padding: 0.75rem;
+}
+
+/* Services spans the full row, with a card per service. */
+.hierarchy > ul > li > ul > li:last-child {
+  grid-column: 1 / -1;
+}
+
+.hierarchy > ul > li > ul > li > ul {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-top: 0.75rem;
+}
+
+.hierarchy > ul > li > ul > li > ul > li {
+  border: 1px dashed var(--ifm-color-emphasis-400);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.65rem;
+}
+
+[data-theme='dark'] .hierarchy > ul > li > strong {
+  color: var(--ifm-color-primary-lightest);
+}
+
+/* Control plane and data plane boxes on the architecture overview page. Like
+   .hierarchy, the markup is a plain nested list. */
+.architecture ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.architecture li {
+  margin: 0;
+}
+
+.architecture strong {
+  color: var(--ifm-font-color-base);
+  display: block;
+}
+
+.architecture > ul > li {
+  background: color-mix(in srgb, var(--ifm-color-primary) 6%, var(--ifm-background-color));
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 12px;
+  padding: 1rem;
+  position: relative;
+}
+
+/* The gap between the two planes carries the connection direction. */
+.architecture > ul > li + li {
+  margin-top: 3rem;
+}
+
+.architecture > ul > li + li::before {
+  color: var(--ifm-color-emphasis-700);
+  content: '\25B2  Outbound connections only';
+  font-size: 0.8rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: -2.1rem;
+}
+
+.architecture > ul > li > strong {
+  color: var(--ifm-color-primary-darkest);
+  font-size: 1.05rem;
+}
+
+.architecture > ul > li > ul {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 0.75rem;
+}
+
+/* A card per service, side by side. */
+.architecture > ul > li:first-child > ul {
+  gap: 0.5rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@media (max-width: 996px) {
+  .architecture > ul > li:first-child > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.architecture > ul > li > ul > li {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+  padding: 0.75rem;
+}
+
+.architecture > ul > li:first-child > ul > li {
+  font-size: 0.85rem;
+}
+
+/* What every service shares is a band under the service cards. */
+.architecture > ul > li:first-child > ul > li:last-child {
+  background: color-mix(in srgb, var(--ifm-color-primary) 14%, var(--ifm-background-color));
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base);
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+/* The two kinds of data plane sit side by side, each holding the components
+   that run in it. */
+.architecture > ul > li:last-child > ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.architecture > ul > li > ul > li > ul {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  margin-top: 0.75rem;
+}
+
+.architecture > ul > li > ul > li > ul > li {
+  border: 1px dashed var(--ifm-color-emphasis-400);
+  border-radius: 6px;
+  color: var(--ifm-font-color-base);
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
+}
+
+@media (max-width: 996px) {
+  .architecture > ul > li:last-child > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+[data-theme='dark'] .architecture > ul > li > strong {
+  color: var(--ifm-color-primary-lightest);
 }

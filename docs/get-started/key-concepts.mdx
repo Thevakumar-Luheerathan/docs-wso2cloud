@@ -1,0 +1,72 @@
+---
+sidebar_position: 3
+title: Key concepts
+description: The core concepts of WSO2 Cloud, including organizations, users, roles, projects, components, environments, services, and data planes.
+---
+
+# Key concepts
+
+WSO2 Cloud has a small set of concepts that every service shares. The most important idea is that projects and environments aren't tied to one service. You create them once, and every service uses them. Platform Engineering is the exception: it runs separately and keeps its own projects and environments.
+
+## How the concepts fit together
+
+An organization holds your users, environments, and projects. Projects contain components, and each service adds its own kinds of components to the same projects, under its own names.
+
+<div className="hierarchy">
+
+- **Organization** The tenant boundary. Everything below belongs to one organization.
+  - **Users** Each user has an organization role, and roles in each service.
+  - **Environments** Such as Development and Production. Shared by every service except Platform Engineering.
+  - **Projects** Group the components of one application or domain. Shared by every service except Platform Engineering, so one project can hold components from several services.
+    - **Agents** Built and run with Agent Management.
+    - **Integrations** Built and run with Integration Management.
+    - **APIs** Managed with API Management.
+    - **Applications, identity providers, and more** Managed with Identity and Access Management.
+
+</div>
+
+## Organization
+
+An organization is the top-level tenant boundary in WSO2 Cloud. Everything else, including users, projects, and environments, belongs to exactly one organization. To learn more, see [Organizations](../manage/organizations.mdx).
+
+## Users and roles
+
+Users are the people who belong to an organization. An administrator adds users by inviting them by email. See [Invite users](../manage/invite-users.mdx).
+
+Each user has an organization role, **OrganizationAdmin** or **Member**, that decides what they can do across the organization, such as managing users. Inside each service, service roles decide what they can do there. See [Access control](../manage/access-control.mdx).
+
+## Projects
+
+A project groups the components that make up one application, business domain, or team's work. Projects are shared across services, except Platform Engineering, which keeps its own. You can create a project in any other service, and the other services see and use the same project.
+
+This means one project can bring together different kinds of components. For example, a project can hold an AI agent, the integrations it calls, and the APIs that expose them.
+
+## Components
+
+A component is a single unit you build, deploy, and run, such as an agent, an integration, or an API. Every component belongs to one project. "Component" is the general term. Each service uses its own, more concrete names for what you create with it:
+
+| Components | Service |
+| --- | --- |
+| Agents | [Agent Management](https://wso2.com/agent-platform/docs/cloud/get-started/what-is-amp/) |
+| Integrations | [Integration Management](https://wso2.com/integration-platform/docs/manage/cloud/overview) |
+| APIs | [API Management](https://wso2.com/api-platform/docs/) |
+| Applications, identity providers, and more | [Identity and Access Management](https://wso2.com/identity-platform/docs/) |
+
+How to build and run each kind of component is covered in that service's documentation.
+
+## Environments
+
+An environment is an isolated place where components run, such as Development or Production. Environments are shared across services, the same way projects are, with the same Platform Engineering exception. An environment you create in one service is available in the others, so all the components of a project move through the same environments.
+
+## Services
+
+WSO2 Cloud is one platform made up of services, such as Agent Management or API Management. Each service covers the full lifecycle of one kind of work, including governance. Every service is part of the WSO2 Cloud console and has its own documentation. Services share your organization, users, projects, and environments. Platform Engineering runs separately, and shares the organization, billing, and support, but not projects and environments. See [What is WSO2 Cloud?](./what-is-wso2-cloud.mdx).
+
+## Control plane and data plane
+
+Each service separates the **control plane**, where you manage your organization, users, and resources, from the **data plane**, where your components run and your runtime traffic flows. WSO2 runs the control plane as SaaS. The data plane can be shared cloud infrastructure or private infrastructure dedicated to you. See [Data planes](../architecture/data-planes.mdx).
+
+## Next steps
+
+- [Sign up and create your organization](./sign-up.mdx)
+- [Architecture overview](../architecture/overview.mdx)

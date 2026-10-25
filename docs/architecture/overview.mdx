@@ -1,0 +1,58 @@
+---
+sidebar_position: 1
+title: Architecture overview
+description: The high-level architecture of WSO2 Cloud, with a control plane where every service shares one organization, its users, and billing, and data planes where your components run.
+---
+
+# Architecture overview
+
+WSO2 Cloud separates where you manage things from where things run:
+
+- The **control plane** is where you manage your organization and your components, through the WSO2 Cloud console. Each service has its own control plane, and all of them share one organization, its users, and billing.
+- The **data plane** is where your components, such as agents, integrations, and APIs, run and your runtime traffic flows.
+
+<div className="architecture">
+
+- **Control plane** Where you manage, through the WSO2 Cloud console.
+  - **Agent Management**
+  - **API Management**
+  - **Integration Management**
+  - **Identity and Access Management**
+  - **Platform Engineering** Runs separately, linked from WSO2 Cloud.
+  - **Shared by every service** Organization · Access control · Billing
+- **Data plane** Where your components run, and your runtime traffic flows.
+  - **Cloud data plane** Shared by many organizations, run by WSO2.
+    - Agents
+    - Integrations
+    - APIs
+    - Identity
+  - **Private data plane** Dedicated to you, run by WSO2 or by you.
+    - Agents
+    - Integrations
+    - APIs
+    - Identity
+
+</div>
+
+## Shared by every service
+
+The control plane holds what is common to every service:
+
+- **Organization**: the tenant boundary. Every service and resource belongs to one organization.
+- **Access control**: who can access the organization, and what their role lets them do across it. See [Access control](../manage/access-control.mdx).
+- **Billing**: the same for every service. Each service has its own subscription plan and is billed separately.
+
+It also holds organization-wide settings, such as [service contacts](../manage/manage-service-contacts.mdx).
+
+## Services
+
+Each service covers the full lifecycle of one kind of work, including governance. Every service is part of the WSO2 Cloud console and has its own documentation. A service's control plane manages the components you build with it, such as agents, integrations, and APIs. The control plane runs as SaaS, operated by WSO2. Platform Engineering runs separately as a dedicated deployment, and you open it from WSO2 Cloud. Projects and environments are shared, so components from different services can live in the same project and run in the same environments.
+
+## Data plane
+
+Runtime traffic stays in the data plane. Components of every service can run in either kind of data plane: the **cloud data plane**, where components from many organizations run, isolated from each other, or a **private data plane** dedicated to your organization. A private data plane connects to the control plane using outbound connections only. See [Data planes](./data-planes.mdx).
+
+## Next steps
+
+- [Key concepts](../get-started/key-concepts.mdx)
+- [Data planes](./data-planes.mdx)

@@ -1,0 +1,9 @@
+# Local development image: runs the Docusaurus dev server with live reload.
+# Source is bind-mounted by compose.dev.yaml, so only dependencies live in the image.
+FROM node:20-alpine
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+EXPOSE 3000
+# --poll makes file watching reliable across the macOS/Windows bind mount.
+CMD ["npx", "docusaurus", "start", "--host", "0.0.0.0", "--port", "3000", "--poll", "1000", "--no-open"]

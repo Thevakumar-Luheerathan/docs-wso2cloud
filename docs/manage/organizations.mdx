@@ -1,0 +1,43 @@
+---
+sidebar_position: 1
+title: Organizations
+description: What a WSO2 Cloud organization is, what it contains, and how it's identified.
+---
+
+# Organizations
+
+An organization is the top-level tenant boundary in WSO2 Cloud. Its users, its service contacts, and the resources you create in every service all belong to it.
+
+## What an organization contains
+
+- **Users.** The people who can access the organization, each with a role that decides what they can do. See [Access control](./access-control.mdx).
+- **Service contacts.** The people WSO2 notifies about maintenance, security, and billing. See [Manage service contacts](./manage-service-contacts.mdx).
+- **Projects and environments.** Shared by every service except Platform Engineering, which keeps its own. See [Key concepts](../get-started/key-concepts.mdx#projects).
+- **Components.** The agents, integrations, APIs, and other components you build in each service.
+
+Every resource belongs to exactly one organization. You can't reach resources in another organization unless its administrator invites you.
+
+## How an organization is identified
+
+Every organization has three identifiers:
+
+| Identifier | What it is |
+| --- | --- |
+| **Name** | The name you gave the organization when you created it. |
+| **Handle** | A unique, readable identifier derived from the name, shown with an `@` prefix. It appears in your default URLs. |
+| **Organization Unit ID** | A unique, system-generated ID. Include it in support requests. |
+
+The name and handle appear in your default URLs, so choose the name carefully when you create the organization. To see your organization's identifiers, see [View organization details](./view-organization-details.mdx).
+
+## One organization per user
+
+For now, each user can create one organization. A user can still belong to other organizations by being invited to them.
+
+## Who manages an organization
+
+Users with the **OrganizationAdmin** role manage the organization's users and service contacts. See [Access control](./access-control.mdx).
+
+## Next steps
+
+- [View organization details](./view-organization-details.mdx)
+- [Invite users](./invite-users.mdx)
