@@ -10,12 +10,12 @@ RUN npm run build
 # Runtime stage: serve the static site with nginx as a non-root user.
 FROM nginx:1.27-alpine
 
-# Pull patched OS packages so the Trivy scan does not block on HIGH/CRITICAL CVEs.
+# Upgrade every OS package so the Trivy scan does not block on HIGH/CRITICAL CVEs.
+# A fixed package list misses new CVEs in packages it doesn't name.
 # `apk update` runs first because it fails when an index cannot be fetched;
-# `apk add` alone exits 0 on a fetch failure and silently upgrades nothing.
+# `apk upgrade` alone exits 0 on a fetch failure and silently upgrades nothing.
 RUN apk update \
-    && apk add --upgrade \
-      libcrypto3 libssl3 libxml2 libpng libexpat musl musl-utils nghttp2-libs zlib c-ares \
+    && apk upgrade \
     && rm -rf /var/cache/apk/*
 
 # The platform requires a UID between 10000 and 20000.
