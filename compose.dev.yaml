@@ -1,0 +1,16 @@
+# Local docs preview with live reload: docker compose -f compose.dev.yaml up
+services:
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - .:/app
+      # Keep the image's node_modules and caches instead of the host's.
+      - node_modules:/app/node_modules
+      - docusaurus_cache:/app/.docusaurus
+volumes:
+  node_modules:
+  docusaurus_cache:

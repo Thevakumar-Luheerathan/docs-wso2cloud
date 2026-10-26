@@ -1,0 +1,43 @@
+---
+sidebar_position: 2
+title: Data planes
+description: The difference between the WSO2 Cloud control plane and data plane, and when to use a cloud data plane (CDP) or a private data plane (PDP).
+---
+
+# Data planes
+
+WSO2 Cloud separates where you manage things from where things run:
+
+- The **control plane** is where you manage your organization, users, and resources. WSO2 runs it as SaaS.
+- The **data plane** is where your workloads run and your runtime traffic flows.
+
+Your runtime traffic stays in the data plane. The control plane manages the data plane, but your application traffic doesn't pass through the control plane.
+
+## Cloud data plane (CDP)
+
+A cloud data plane is shared, multi-tenant infrastructure that WSO2 runs for you. Components from many organizations run in it, isolated from each other. It's the default, and there's nothing to set up.
+
+## Private data plane (PDP)
+
+A private data plane is infrastructure dedicated to a single organization. Use a PDP when you need:
+
+- Your builds and workloads to run in a specific cloud account, region, or on-premises location.
+- Logs and other observability data to stay within your own infrastructure.
+- Dedicated capacity that isn't shared with other tenants.
+
+A PDP runs on AWS, Azure, Google Cloud, or on-premises. It stays connected to the WSO2 Cloud control plane, using outbound connections only, secured with TLS, so you don't need to open inbound ports to WSO2. What you manage through the control plane stays in your WSO2 Cloud region. See [Data residency and regions](../security/data-residency.mdx).
+
+## PDP management models
+
+| Model | Infrastructure | Operated by |
+| --- | --- | --- |
+| WSO2-managed, WSO2 subscription | WSO2's cloud account | WSO2 |
+| WSO2-managed, customer subscription | Your cloud account | WSO2 |
+| Customer self-managed | Your cloud account or data center | You |
+
+To set up a PDP, contact [WSO2 support](../support.mdx).
+
+## Next steps
+
+- [Data residency and regions](../security/data-residency.mdx)
+- [Architecture](./overview.mdx)

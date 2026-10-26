@@ -1,0 +1,39 @@
+---
+sidebar_position: 1
+title: Security overview
+description: How WSO2 Cloud approaches security, compliance, and data privacy, with links to WSO2's certifications and policies.
+---
+
+# Security overview
+
+WSO2 builds WSO2 Cloud with a privacy-by-design and security-by-default approach. This page summarizes the controls and commitments that apply, and links to the authoritative sources.
+
+## Compliance
+
+Compliance certifications for WSO2 Cloud are in progress. For WSO2's current certifications and their scope, see [WSO2 Compliance](https://wso2.com/security/compliance/).
+
+## Data privacy
+
+- WSO2 supports GDPR and CCPA obligations, and offers a Data Processing Agreement (DPA).
+- WSO2 is certified under the EU-U.S. Data Privacy Framework.
+- WSO2 publishes the subprocessors it uses to deliver its cloud services.
+
+For details, see [Data Privacy and Protection](https://wso2.com/security/data-privacy-and-protection) and the [public cloud subprocessor list](https://wso2.cachefly.net/wso2/sites/all/trust/wso2-public-cloud-subprocessor-list.pdf).
+
+## Service security
+
+- **Tenant isolation.** Each organization is an isolated tenant. Its resources can't be reached from another organization.
+- **Separated planes.** Runtime traffic stays in the data plane. Traffic between the control plane and the data plane is encrypted with TLS. See [Data planes](../architecture/data-planes.mdx).
+- **Least-privilege access.** Give the **OrganizationAdmin** role only to the people who administer the organization. See [Access control](../manage/access-control.mdx).
+- **Security contacts.** WSO2 notifies your security contacts about security incidents, vulnerability disclosures, and critical patches. See [Manage service contacts](../manage/manage-service-contacts.mdx).
+
+WSO2's cloud security processes are described in the [WSO2 Security documentation](https://security.docs.wso2.com/en/latest/security-processes/cloud-security-process/).
+
+## Report a vulnerability
+
+To report a security issue, follow the process on the [WSO2 Security](https://wso2.com/security/) page.
+
+## Next steps
+
+- [Data residency and regions](./data-residency.mdx)
+- [Access control](../manage/access-control.mdx)

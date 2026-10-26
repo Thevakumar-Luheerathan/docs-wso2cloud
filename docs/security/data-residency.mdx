@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+title: Data residency and regions
+description: Where WSO2 Cloud stores and processes your data, which regions are available, and how to keep data in a specific location.
+---
+
+# Data residency and regions
+
+WSO2 Cloud runs in two regions, so you can keep your data in the location that meets your data residency requirements.
+
+## Regions
+
+WSO2 Cloud is available in the **US** and the **EU**. Each region is a fully isolated setup of WSO2 Cloud, with all its services. The two regions don't share organizations, users, or data.
+
+## Choosing a region
+
+You select the region on the sign-up and sign-in page. Choose the region that meets your requirements when you create your organization. Resources and data created in one region are not available in another region. This includes projects, configurations, secrets, user data, and monitoring data.
+
+## Keep data in your own infrastructure
+
+If a WSO2 region doesn't meet your requirements for your workloads, use a [private data plane](../architecture/data-planes.mdx#private-data-plane-pdp). A private data plane runs in the cloud account, region, or data center you choose. It holds:
+
+- **Builds** of your components.
+- **Runtimes** of your workloads, and their runtime traffic.
+- **Observability data**, such as logs, metrics, and traces.
+
+A private data plane stays connected to the WSO2 Cloud control plane in the region you selected at sign-up. What you manage through the control plane, such as your organization, users, and projects, stays in that region.
+
+## Next steps
+
+- [Data planes](../architecture/data-planes.mdx)
+- [Security overview](./overview.mdx)

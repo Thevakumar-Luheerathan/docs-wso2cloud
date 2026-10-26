@@ -1,60 +1,74 @@
 ---
 sidebar_position: 1
 sidebar_label: What is WSO2 Cloud?
-description: WSO2 Cloud is the SaaS edition of the WSO2 agentic enterprise fabric, with platforms for APIs, integration, identity, analytics, and AI agents, provisioned and operated for you.
+description: WSO2 Cloud is one platform, delivered as a service, for building, running, securing, and governing AI agents, APIs, integrations, and applications. Its services share one console, organization, projects, and environments.
 ---
 
 # What is WSO2 Cloud?
 
-WSO2 Cloud is the fully managed SaaS way to use WSO2's platforms. Register once and you get the platforms already provisioned, pre-integrated, and operated for you, all under one Organization and one bill.
+WSO2 Cloud is one platform, delivered as a service, for building, running, securing, and governing AI agents, APIs, integrations, and applications. It is the WSO2 agentic enterprise fabric: each capability is a service, and every service shares the same console, organization, projects, and environments.
 
-## The agentic enterprise fabric
+## Services
 
-WSO2 builds the **agentic enterprise fabric**. It is a set of platforms that enterprises standardize on to build, connect, secure, run, and observe software at scale. The fabric covers APIs, integrations, identity, analytics, and AI agents, and each of these is a full capability in its own right.
+Each service covers the full lifecycle of one kind of work, including governance. Every service is part of the [WSO2 Cloud console](https://console.cloud.wso2.com) and has its own documentation.
 
-You can run these platforms in three ways:
+### Agent Management
 
-| Deployment model | Who runs the infrastructure | Who runs the control plane |
-| --- | --- | --- |
-| **Self-managed** | You | You |
-| **Hybrid** | You | WSO2 |
-| **SaaS (WSO2 Cloud)** | WSO2 | WSO2 |
+An open control plane for deploying, managing, and governing AI agents at scale. Use it to run agents in production, manage their versions and configurations, enforce governance policies, and observe and continuously evaluate agent behavior. It also governs agents deployed outside WSO2 Cloud.
 
-WSO2 Cloud is the SaaS option. You don't need to install, upgrade, or operate anything, and the platforms arrive already connected to each other.
+[Agent Management documentation](https://wso2.com/agent-platform/docs/cloud/get-started/what-is-amp/)
 
-## What WSO2 Cloud offers
+### API Management
 
-WSO2 Cloud is more than the individual platforms. Its offering comes in three tiers:
+Management, security, and governance for your APIs and AI services. Use it to proxy REST APIs, route traffic to LLM providers such as OpenAI or Anthropic, and expose your services as MCP tools for AI agents. It covers the full API lifecycle, from design and deployment to governance and monetization, with developer portals, subscriptions, policies, and analytics.
 
-<div className="offering-grid">
-  <div className="offering-card">
-    <h3>Platforms</h3>
-    <p>The fabric itself: five SaaS platforms and a dedicated developer platform.</p>
-  </div>
-  <div className="offering-card">
-    <h3>Labs</h3>
-    <p>Early experiments built on the platforms, such as an AI teammate that ships integrations.</p>
-  </div>
-  <div className="offering-card">
-    <h3>Solutions</h3>
-    <p>Ready-made vertical products you can deploy in minutes, such as HealthCare and Open Banking.</p>
-  </div>
-</div>
+[API Management documentation](https://wso2.com/api-platform/docs/)
+
+### Integration Management
+
+A managed cloud environment for integrations built with WSO2 Integrator. Use it to push an integration to the cloud, track builds and deployments, promote it across environments, configure runtime values and security, and monitor logs and metrics, without managing infrastructure.
+
+[Integration Management documentation](https://wso2.com/integration-platform/docs/manage/cloud/overview)
+
+### Identity and Access Management
+
+API-first identity orchestration for both people and AI agents. Use it to add sign-in, multi-factor and passwordless authentication, API authorization, and user management to your applications, and to secure MCP servers and AI agents.
+
+[Identity and Access Management documentation](https://wso2.com/identity-platform/docs/)
+
+### Platform Engineering
+
+An AI-native Internal Developer Platform (IDP) for designing, developing, deploying, and managing cloud-native applications. Use it to abstract infrastructure so developers can focus on code, while platform engineers keep governance and operational control from code to production. Platform Engineering runs separately as a dedicated deployment. You open it from WSO2 Cloud, and it gets the same billing and support as every other service.
+
+[Platform Engineering documentation](https://wso2.com/engineering-platform/developer-platform/docs/)
+
+## One organization across every service
+
+An organization is the top-level tenant boundary in WSO2 Cloud. You create one when you sign up, and every service you use belongs to it. Your account is you, the person who signs in. Your organization is the tenant your team shares. See [Organizations](../manage/organizations.mdx).
+
+WSO2 Cloud owns what is common to all services:
+
+- **Users.** You invite users to the organization, and give each one an [organization role](../manage/access-control.mdx#organization-roles).
+- **Projects and environments.** A project or environment you create in one service is available in every service, so one project can hold agents, integrations, and APIs together. Platform Engineering is the exception: it runs separately and keeps its own projects and environments.
+- **Billing.** Billing works the same way for every service. Each service has its own subscription plan and is billed separately. See [Subscriptions and billing](../manage/subscriptions-and-billing.mdx).
+
+Each service owns the components you build with it, such as agents, integrations, APIs, or identity providers. Each service uses its own names for them, and their documentation lives with that service. See [Key concepts](./key-concepts.mdx).
+
+Each service also separates its control plane, where you manage, from its data plane, where your components run. See [Architecture overview](../architecture/overview.mdx).
 
 ## Why a fabric, not separate products
 
-Enterprise software often fails in production because of the capabilities around it, not the software itself:
+Software in production depends on the capabilities around it:
 
 - An API needs identity and analytics to be secure and observable.
 - An integration needs to be exposed and governed.
 - An AI agent needs all of these.
 
-These platforms work best woven together, not bought one at a time and stitched together later. The fabric gives platform teams a composable foundation to standardize on, so that every kind of software, including AI agents, is built, run, and governed the same way across the enterprise.
+When these capabilities come from one platform, they share the same organization, users, projects, and environments, so you don't have to connect separate products yourself. This matters most for AI agents, which depend on the identity, integrations, APIs, and observability around them.
 
-AI agents make this more urgent. An agent is only as ready as the identity, integrations, APIs, and observability around it. The fabric serves the whole portfolio equally, though. It works just as well if you want to publish APIs, connect systems, manage identity, understand usage, or run agents. WSO2 Cloud delivers that fabric as SaaS.
+## Next steps
 
-## Our vision
-
-WSO2 Cloud aims to be the default cloud for enterprises to build, run, and govern software and AI agents. It brings identity, integration, APIs, analytics, and agent infrastructure together as one enterprise-grade cloud.
-
-Capabilities that used to need large platform teams become available right away to organizations of every size, from startups to global enterprises.
+- [Sign up and create your organization](./sign-up.mdx)
+- [Learn the key concepts](./key-concepts.mdx)
+- [Invite users to your organization](../manage/invite-users.mdx)
+- [Architecture overview](../architecture/overview.mdx)
