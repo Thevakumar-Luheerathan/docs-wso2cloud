@@ -64,6 +64,7 @@ const sidebars: SidebarsConfig = {
         'manage/manage-service-contacts',
         'manage/subscriptions-and-billing',
         'manage/manage-your-subscription',
+        'manage/container-registries',
       ],
     },
     {

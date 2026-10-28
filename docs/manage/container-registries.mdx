@@ -1,0 +1,56 @@
+---
+sidebar_position: 8
+title: Manage container registries
+description: Add the public and private container registries your components pull prebuilt images from, update their credentials, and remove them.
+---
+
+# Manage container registries
+
+This article shows you how to connect container registries, such as `ghcr.io` or `docker.io`, to your organization. Components can then be deployed from prebuilt images in them. Credentials are kept in a secret store and never shown again.
+
+:::note
+Container registries are currently available only for organizations on a [private data plane (PDP)](../architecture/data-planes.mdx#private-data-plane-pdp).
+:::
+
+## Prerequisites
+
+- The **OrganizationAdmin** role in the organization.
+
+## Add a registry
+
+1. Sign in to the [WSO2 Cloud console](https://console.cloud.wso2.com).
+2. In the sidebar, under **Admin**, select **Container Registries**.
+3. Select **Add Container Registries**.
+4. Enter a **Display name** and the **Registry host**, for example `ghcr.io`. Don't include `https://`.
+5. Under **Authentication**, select one of these:
+   - **Public**: no credential needed.
+   - **Username + token**: enter a username and a read-only access token.
+   - **Docker config JSON**: paste the contents of a Docker `config.json` file.
+6. Optionally, enter a **Test image** the registry should be able to pull, such as `team/app:1.0`, and select **Test connection**. A registry whose test image pulls is marked **Verified**.
+7. Select **Save registry**.
+
+## Use a registry in a component
+
+When you create a component from a prebuilt image, select one of your organization's registries and enter the image, relative to the registry host. The component pulls the image with that registry's credential.
+
+## Update credentials
+
+1. Go to **Admin** > **Container Registries**.
+2. In the registry's row, select the edit icon.
+3. Enter the new credential. For **Username + token**, enter both fields.
+4. Select **Update credentials**.
+
+Components that use the registry pick up the new credential with no change. Without a test image, the status becomes **Unverified**.
+
+## Delete a registry
+
+1. Go to **Admin** > **Container Registries**.
+2. In the registry's row, select the delete icon.
+3. Type the registry's display name to confirm, and select **Delete registry**.
+
+You can't delete a registry while components use it. Deleting a registry also deletes its credential, and can't be undone.
+
+## Next steps
+
+- [Data planes](../architecture/data-planes.mdx)
+- [Access control](./access-control.mdx)
